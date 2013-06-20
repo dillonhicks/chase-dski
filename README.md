@@ -1,3 +1,23 @@
+*chase-dski*
+
+This was part of my research as well as double duty with the EECS 750:
+Adv. Operating Systems class. The main purpose of this project was to
+use KUSP's in house instrumentation framework (Data Streams) in order
+to implement a flavor of ptrace/systrace which would:
+
+1. Have less overhead
+
+2. Demonstrate the efficacy of our unified (system & user side)
+   instrumentation framework
+
+3. Gain a hollistic view of the system which could be used to create
+   more effective scheduling, networking, etc..
+
+Note that, this code is only the kernel module and related user code
+that will turn on the instrumentation within the KUSP kernel when
+loaded. Due to the nature of main tracing code, it requires some code
+within the kernel proper that cannot be modularized.
+
 **tracing**
 
 First you will want to add the location of the tracing program
@@ -93,7 +113,7 @@ postprocess.py: a script that wraps the postprocess command provided
     - /proc/kallsysms
     
   
-- tests: Obviously a directory for user program tests. These are
+- tests: A directory for user program tests. These are
   described more in depth at
   ``$KUSPROOT/docs/datastreams/tools/chase.rst``
   
